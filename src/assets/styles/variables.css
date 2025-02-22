@@ -1,0 +1,9 @@
+:root {
+    --primary-color: #1bbde8;
+    --secondary-color: #f1f1f1;
+    --text-color: #555;
+    --border-color: #ccc;
+    --background-light: #fff;
+    --hover-color: #119fc4;
+    --discount-color: red;
+}

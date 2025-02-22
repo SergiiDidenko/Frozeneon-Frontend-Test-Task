@@ -1,0 +1,14 @@
+.product-list {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--secondary-color);
+  padding-right: 5px;
+  &::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+    border: 2px solid var(--secondary-color);
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--hover-color);
+  }
+}
