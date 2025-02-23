@@ -48,3 +48,9 @@
   width: 10px;
   height: 10px;
 }
+
+.img-cover {
+  object-fit: cover;
+  width: inherit;
+  height: inherit;
+}

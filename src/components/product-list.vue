@@ -55,7 +55,10 @@ const bottomPadding = computed(() => `${(filteredProducts.value.length - endInde
                 <transition-group name="fade" tag="div" :key="startIndex">
                     <div v-for="product in visibleProducts" :key="product.id"
                         class="product-item d-flex align-center gap-15">
-                        <img :src="product.thumbnail" :alt="product.title" class="product-image" />
+                        <div class="product-image">
+                            <img :src="product.thumbnail" :alt="product.title" class=" img-cover" />
+
+                        </div>
                         <div class="product-info gap-5 d-flex flex-column">
                             <h3 class="bold size-m">{{ product.title }}</h3>
                             <p class="text-color size-s">{{ product.description }}</p>
