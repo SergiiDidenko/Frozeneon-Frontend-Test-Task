@@ -1,71 +1,24 @@
-.product-list {
-    .product-item {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        padding: 10px;
-        border: 1px solid var(--border-color);
-        border-radius: 5px;
-        background: var(--background-light);
-        height: 200px;
+.product-item {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background: var(--background-light);
+  height: 200px;
+}
 
-        .product-image {
-            width: 200px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 5px;
-        }
+.product-image {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+}
 
-        .product-info {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+.discount {
+  color: var(--discount-color);
+}
 
-            .product-title {
-                font-size: 16px;
-                font-weight: bold;
-            }
-            .product-description {
-                font-size: 14px;
-                color: var(--text-color);
-            }
-            .product-meta {
-                display: flex;
-                gap: 10px;
-                font-size: 16px;
-                color: #777;
-
-                .discount {
-                    color: var(--discount-color);
-                    font-weight: bold;
-                }
-                .brand {
-                    color: var(--primary-color);
-                }
-                .category {
-                    background: var(--secondary-color);
-                    padding: 2px 5px;
-                    border-radius: 5px;
-                }
-            }
-            .product-footer {
-                display: flex;
-                gap: 15px;
-                font-size: 16px;
-                font-weight: bold;
-                color: var(--primary-color);
-
-                .rating {
-                    display: flex;
-                    align-items: center;
-                    gap: 5px;
-
-                    img {
-                        width: 10px;
-                        height: 10px;
-                    }
-                }
-            }
-        }
-    }
+.category {
+  background: var(--secondary-color);
+  padding: 2px 5px;
+  border-radius: var(--border-radius);
 }

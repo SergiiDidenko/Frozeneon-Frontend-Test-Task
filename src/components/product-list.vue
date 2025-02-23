@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from "vue";
-import { useProducts } from "@/composables/useProducts";
+import { useProducts } from "@/composables/use-products";
 import star from "@/assets/img/star.svg";
 
 const { filteredProducts, searchQuery, loadMoreProducts } = useProducts();
@@ -47,25 +47,28 @@ const bottomPadding = computed(() => `${(filteredProducts.value.length - endInde
 </script>
 
 <template>
-    <div class="product-container">
+    <div class="container d-flex flex-column">
         <input v-model="searchQuery" type="text" placeholder="Пошук товарів..." class="search-input" />
 
         <div ref="listRef" class="product-list">
             <div :style="{ paddingTop: topPadding, paddingBottom: bottomPadding }">
                 <transition-group name="fade" tag="div" :key="startIndex">
-                    <div v-for="product in visibleProducts" :key="product.id" class="product-item">
+                    <div v-for="product in visibleProducts" :key="product.id"
+                        class="product-item d-flex align-center gap-15">
                         <img :src="product.thumbnail" :alt="product.title" class="product-image" />
-                        <div class="product-info">
-                            <h3 class="product-title">{{ product.title }}</h3>
-                            <p class="product-description">{{ product.description }}</p>
-                            <div class="product-meta">
-                                <span class="discount">Discount {{ product.discountPercentage }}%</span>
-                                <span class="brand">{{ product.brand }}</span>
+                        <div class="product-info gap-5 d-flex flex-column">
+                            <h3 class="bold size-m">{{ product.title }}</h3>
+                            <p class="text-color size-s">{{ product.description }}</p>
+                            <div class="text-color size-m gap-10 d-flex">
+                                <span class="discount bold">Discount {{ product.discountPercentage }}%</span>
+                                <span class="primary-color">{{ product.brand }}</span>
                                 <span class="category">{{ product.category }}</span>
                             </div>
-                            <div class="product-footer">
+                            <div class="primary-color bold size-m gap-15 d-flex align-center">
                                 <span class="price">${{ product.price }}</span>
-                                <span class="rating"><img :src="star" alt="star" />{{ product.rating }}</span>
+                                <span class="gap-5 d-flex align-center">
+                                    <img :src="star" alt="star" class="img-s" />{{ product.rating }}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -74,4 +77,3 @@ const bottomPadding = computed(() => `${(filteredProducts.value.length - endInde
         </div>
     </div>
 </template>
-

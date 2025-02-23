@@ -1,3 +1,4 @@
+import { environment } from "@/environments/environment";
 import type { IProduct } from "@/interfaces/product-interface";
 import { ref, computed, onMounted } from "vue";
 
@@ -5,12 +6,13 @@ export function useProducts() {
   const products = ref<IProduct[]>([]);
   const searchQuery = ref<string>("");
   const allProducts = ref<IProduct[]>([]);
+  const apiUrl: string = environment.apiUrl;
   const limit = 20;
   let offset = 0;
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch("https://dummyjson.com/products?limit=100");
+      const response = await fetch(`${apiUrl}/products?limit=100`);
       const data = await response.json();
       allProducts.value = data.products;
       products.value = allProducts.value.slice(0, limit);
